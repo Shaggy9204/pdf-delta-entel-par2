@@ -21,11 +21,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "\"FECHA_INICIO\";\"FECHA_FIN\";\"NUMERO\";\"IMEI\";\"RBS_UTILIZADA\";\"CELDA\";\"LATITUD LONGITUD\";\"SUBIDOS\";\"DESCARGADOS\";\"TOTAL\"",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
