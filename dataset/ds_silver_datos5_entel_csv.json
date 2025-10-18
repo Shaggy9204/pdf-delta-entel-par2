@@ -16,7 +16,7 @@
 				"fileName": "05.csv",
 				"container": "raw-entel"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": ";",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
