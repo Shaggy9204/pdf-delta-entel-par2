@@ -22,10 +22,21 @@
 					"name": "dimRadioBase"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_dim_hechos_datos",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "lookup1"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -54,10 +65,38 @@
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     query: 'select id_radiobase,radiobase from gold.dim_radiobase',",
 				"     format: 'query') ~> dimRadioBase",
-				"source1 lookup(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"source1, dimRadioBase lookup(rbs_utilizada == radiobase,",
 				"     multiple: false,",
 				"     pickup: 'any',",
-				"     broadcast: 'auto')~> lookup1"
+				"     broadcast: 'auto')~> lookup1",
+				"lookup1 select(mapColumn(",
+				"          id_radiobase",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          id_datos as integer,",
+				"          subidos as integer,",
+				"          descargados as integer,",
+				"          total as integer,",
+				"          id_fecha_inicio as integer,",
+				"          id_fecha_fin as integer,",
+				"          id_numero as integer,",
+				"          id_radiobase as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          id_radiobase",
+				"     )) ~> sink1"
 			]
 		}
 	}
