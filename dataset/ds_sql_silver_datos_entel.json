@@ -41,9 +41,7 @@
 			},
 			{
 				"name": "latitud_longitud",
-				"type": "decimal",
-				"precision": 18,
-				"scale": 0
+				"type": "nvarchar"
 			},
 			{
 				"name": "subidos",

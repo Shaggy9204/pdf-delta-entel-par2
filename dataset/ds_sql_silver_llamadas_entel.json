@@ -37,9 +37,7 @@
 			},
 			{
 				"name": "latitud_longitud_a",
-				"type": "decimal",
-				"precision": 18,
-				"scale": 0
+				"type": "nvarchar"
 			},
 			{
 				"name": "numero_b",
@@ -59,9 +57,7 @@
 			},
 			{
 				"name": "latitud_longitud_b",
-				"type": "decimal",
-				"precision": 18,
-				"scale": 0
+				"type": "nvarchar"
 			},
 			{
 				"name": "fecha",
