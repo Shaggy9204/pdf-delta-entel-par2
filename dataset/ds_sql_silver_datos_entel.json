@@ -40,13 +40,7 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "latitud",
-				"type": "decimal",
-				"precision": 18,
-				"scale": 0
-			},
-			{
-				"name": "longitud",
+				"name": "latitud_longitud",
 				"type": "decimal",
 				"precision": 18,
 				"scale": 0
